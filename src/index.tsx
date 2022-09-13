@@ -247,7 +247,7 @@ class DiffViewer extends React.Component<
 							[this.styles.diffRemoved]: removed,
 							[this.styles.highlightedGutter]: highlightLine,
 						})}>
-						<pre className={this.styles.lineNumber}>{lineNumber}</pre>
+						<div className={this.styles.lineNumber}>{lineNumber}</div>
 					</td>
 				)}
 				{!this.props.splitView && !this.props.hideLineNumbers && (
@@ -262,7 +262,7 @@ class DiffViewer extends React.Component<
 							[this.styles.diffRemoved]: removed,
 							[this.styles.highlightedGutter]: highlightLine,
 						})}>
-						<pre className={this.styles.lineNumber}>{additionalLineNumber}</pre>
+						<div className={this.styles.lineNumber}>{additionalLineNumber}</div>
 					</td>
 				)}
 				<td
@@ -272,10 +272,10 @@ class DiffViewer extends React.Component<
 						[this.styles.diffRemoved]: removed,
 						[this.styles.highlightedLine]: highlightLine,
 					})}>
-					<pre>
+					<div>
 						{added && '+'}
 						{removed && '-'}
-					</pre>
+					</div>
 				</td>
 				<td
 					className={cn(this.styles.content, {
@@ -284,7 +284,7 @@ class DiffViewer extends React.Component<
 						[this.styles.diffRemoved]: removed,
 						[this.styles.highlightedLine]: highlightLine,
 					})}>
-					<pre className={this.styles.contentText}>{content}</pre>
+					<div className={this.styles.contentText}>{content}</div>
 				</td>
 			</React.Fragment>
 		);
@@ -424,7 +424,7 @@ class DiffViewer extends React.Component<
 				rightBlockLineNumber,
 			)
 		) : (
-			<pre className={this.styles.codeFoldContent}>Expand {num} lines ...</pre>
+			<div className={this.styles.codeFoldContent}>Expand {num} lines ...</div>
 		);
 		const content = (
 			<td>
@@ -562,15 +562,15 @@ class DiffViewer extends React.Component<
 
 		const title = (leftTitle || rightTitle) && (
 			<tr>
-				<td
+				<th
 					colSpan={splitView ? colSpanOnSplitView : colSpanOnInlineView}
 					className={this.styles.titleBlock}>
-					<pre className={this.styles.contentText}>{leftTitle}</pre>
-				</td>
+					<div className={this.styles.contentText}>{leftTitle}</div>
+				</th>
 				{splitView && (
-					<td colSpan={colSpanOnSplitView} className={this.styles.titleBlock}>
-						<pre className={this.styles.contentText}>{rightTitle}</pre>
-					</td>
+					<th colSpan={colSpanOnSplitView} className={this.styles.titleBlock}>
+						<div className={this.styles.contentText}>{rightTitle}</div>
+					</th>
 				)}
 			</tr>
 		);
